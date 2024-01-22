@@ -1,2 +1,6 @@
 def test():
-    print("!")
+    return "!"
+
+
+def error():
+    raise ValueError("this is an error")
