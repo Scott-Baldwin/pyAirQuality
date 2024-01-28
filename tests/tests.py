@@ -22,7 +22,7 @@ from pyAirQuality import ashrae
 
 class TestASHRAE(unittest.TestCase):
     def test_separation(self):
-        self.assertIsNone(ashrae.separation_distance())
+        self.assertIsNone(ashrae.separation_dilution())
 
     def test_handbook(self):
         self.assertIsNone(ashrae.handbook_dilution())
