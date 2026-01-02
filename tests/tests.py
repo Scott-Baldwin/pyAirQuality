@@ -5,7 +5,7 @@ sys.path.append("src")
 
 
 # %%
-from pyAirQuality import example
+import example
 
 
 class TestExample(unittest.TestCase):
@@ -17,17 +17,17 @@ class TestExample(unittest.TestCase):
 
 
 # %%
-from pyAirQuality import ashrae_handbook, separation_method
+import handbook, separation
 
 
 class TestASHRAE(unittest.TestCase):
     def test_separation(self):
-        self.assertAlmostEqual(157.9, separation_method.get_dilution(), 1)
+        self.assertAlmostEqual(157.9, separation.get_dilution(), 1)
 
     def test_handbook(self):
         self.assertAlmostEqual(
             6.6,
-            ashrae_handbook.get_dilution(
+            handbook.get_dilution(
                 U_h=1,
                 sigma_y=1,
                 sigma_z=1,
