@@ -17,15 +17,26 @@ class TestExample(unittest.TestCase):
 
 
 # %%
-from pyAirQuality import ashrae
+from pyAirQuality import ashrae_handbook, separation_method
 
 
 class TestASHRAE(unittest.TestCase):
     def test_separation(self):
-        self.assertIsNone(ashrae.separation_dilution())
+        self.assertAlmostEqual(157.9, separation_method.get_dilution(), 1)
 
     def test_handbook(self):
-        self.assertIsNone(ashrae.handbook_dilution())
+        self.assertAlmostEqual(
+            6.6,
+            ashrae_handbook.get_dilution(
+                U_h=1,
+                sigma_y=1,
+                sigma_z=1,
+                V_e=1,
+                d_e=1,
+                zeta=1,
+            ),
+            1,
+        )
 
 
 # %%
