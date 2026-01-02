@@ -31,6 +31,9 @@ def get_turbulence(z, z_o):
     return (i_y, i_z)
 
 
+# TODO: add plume-rise calcs to get zeta
+
+
 # %% test
 def main():
     z = 10
