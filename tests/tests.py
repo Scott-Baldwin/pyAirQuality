@@ -1,44 +1,12 @@
-# %%
+# standard library
 import sys, unittest
 
 sys.path.append("src")
+# import individual test classes
+# importing test classes will allow them to run from main below
+from separation import TestSeparation
+from handbook import TestHandbookExample_2
 
-
-# %%
-import example
-
-
-class TestExample(unittest.TestCase):
-    def test_test(self):
-        self.assertEqual("!", example.test())
-
-    def test_error(self):
-        self.assertRaises(ValueError, example.error)
-
-
-# %%
-import handbook, separation
-
-
-class TestASHRAE(unittest.TestCase):
-    def test_separation(self):
-        self.assertAlmostEqual(157.9, separation.get_dilution(), 1)
-
-    def test_handbook(self):
-        self.assertAlmostEqual(
-            6.6,
-            handbook.get_dilution(
-                U_h=1,
-                sigma_y=1,
-                sigma_z=1,
-                V_e=1,
-                d_e=1,
-                zeta=1,
-            ),
-            1,
-        )
-
-
-# %%
+# run all test classes
 if __name__ == "__main__":
     unittest.main()
